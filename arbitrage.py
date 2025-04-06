@@ -1,3 +1,22 @@
+import ccxt
+
+def get_btc_spread():
+    # Initialize exchanges
+    binance = ccxt.binance()
+    kraken = ccxt.kraken()
+
+    # Fetch BTC prices
+    btc_binance = binance.fetch_ticker('BTC/USDT')['last']
+    btc_kraken = kraken.fetch_ticker('BTC/USD')['last']
+
+    # Calculate spread
+    spread = btc_kraken - btc_binance
+    print(f"Spread: {spread:.2f} USD")
+    return spread
+
+# Run the function
+if __name__ == "__main__":
+    get_btc_spread()
 
 # Fetch ticker data
 btc_ticker = binance.fetch_ticker('BTC/USDT')
