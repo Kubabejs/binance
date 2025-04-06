@@ -1,6 +1,3 @@
-!pip install --upgrade ccxt
-
-import ccxt
 
 # Fetch ticker data
 btc_ticker = binance.fetch_ticker('BTC/USDT')
